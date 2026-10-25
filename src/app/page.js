@@ -1,5 +1,6 @@
 import { Hero } from "@/components/Hero"
 import { SkillCard } from "@/components/SkillCard"
+import Jadwal from "@/components/Jadwal";
 import Kartu from "@/components/Kartu";
 
 const skills = [
@@ -14,6 +15,7 @@ const hobies = [
   { id: 1, nama: "Membaca buku" },
   { id: 2, nama: "Mengeksplore hal baru" },
   { id: 3, nama: "Menulis dan mengarang sebuah cerita" },
+  { id: 4, nama: "Mencari sesuatu yang menarik" },
 ];
 
 const rencana = [
@@ -22,7 +24,14 @@ const rencana = [
   { id: 3, nama: "Berhasil mencapai tujuan seperti penerbitan buku." },
 ];
 
-const jadwal = [];
+const jadwal = [
+  { id: 1, hari: "Kamis", waktu: "10.00 - 13.30", kegiatan: "Membaca modul KI dan mulai membuat catatan materi dari modul." },
+  { id: 2, hari: "Jum'at", waktu: "19.00 - 20.30", kegiatan: "Memulai setup tugas dari modul." },
+  { id: 3, hari: "Minggu", waktu: "12.30 - 17.30", kegiatan: "Melanjutkan mengerjakan tugas dari modul." },
+  { id: 4, hari: "Senin", waktu: "19.00 - 21.00", kegiatan: "Melanjutkan mengerjakan tugas dari modul (apabila masih belum selesai)" },
+  { id: 5, hari: "Selasa", waktu: "07.30 - 11.30", kegiatan: "Mengeksplore kembali tugas dari modul, serta melanjutkan tugas dari modul." },
+  { id: 6, hari: "Selasa", waktu: "20.00 - 22.30", kegiatan: "Record untuk laporan, mengedit presentasi, serta upload YouTube" }
+];
 
 export default function Home() {
   return(
@@ -46,7 +55,7 @@ export default function Home() {
           children={(
             <ul className="list-disc pl-5">
               {hobies.map((hobi) => (
-                <li key={hobi.id} className="text-utama font-medium">
+                <li key={hobi.id} className="text-utama font-medium mb-1">
                   {hobi.nama}
                 </li>
               ))}
@@ -57,8 +66,8 @@ export default function Home() {
           judul="Cita-Cita" 
           children={(
             <div>
-              <p className="text-utama">
-                Saya bermimpi untuk menjadi <span className="font-semibold">Full Stack Developer</span>  serta menjadi <span className="font-semibold">penulis sukses</span> yang mampu menginspirasi orang lain.
+              <p className="text-utama mb-2">
+                Saya bermimpi untuk menjadi <span className="font-semibold">Full Stack Developer</span>  serta menjadi <span className="font-semibold">penulis sukses</span> yang mampu menginspirasi orang lain. Karena itu saya ingin bisa:
               </p>
               <ol className="list-decimal pl-5">
                 {rencana.map((plan) => (
@@ -80,6 +89,12 @@ export default function Home() {
             ))}
           </div>
         )} 
+      />
+      <Kartu
+        judul="Jadwal"
+        children={(
+          <Jadwal jadwal={jadwal} />
+        )}
       />
     </main>
   )
