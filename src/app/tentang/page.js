@@ -2,6 +2,11 @@ import { SkillCard } from "@/components/SkillCard"
 import Jadwal from "@/components/Jadwal";
 import Kartu from "@/components/Kartu";
 
+export const metadata = {
+  title: "Tentang",
+  description: "Cerita, hobi, cita-cita, dan jadwal belajar Muhammad Mirza Aulia."
+}
+
 const skills = [
   { nama: "HTML", level: "Menengah" },
   { nama: "CSS", level: "Menengah" },
