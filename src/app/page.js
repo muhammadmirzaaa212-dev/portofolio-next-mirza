@@ -1,7 +1,8 @@
 import { Hero } from "@/components/Hero"
 import { SkillCard } from "@/components/SkillCard"
-import Jadwal from "@/components/Jadwal";
-import Kartu from "@/components/Kartu";
+import { proyek } from "@/data/proyek";
+import ProyekCard from "@/components/ProyekCard";
+import Link from "next/link";
 
 const skills = [
   { nama: "HTML", level: "Menengah" },
@@ -33,69 +34,34 @@ const jadwal = [
   { id: 6, hari: "Selasa", waktu: "20.00 - 22.30", kegiatan: "Record untuk laporan, mengedit presentasi, serta upload YouTube" }
 ];
 
+const proyekTerbaru = proyek.slice(-3);
+
 export default function Home() {
   return(
-    <main className="mx-auto max-w-5xl px-4 py-10 flex flex-col gap-5">
+    <main className="mx-auto max-w-5xl px-4 py-10 flex flex-col gap-10">
       <Hero 
         nama="Muhammad Mirza Aulia" 
         tagline="Siswa kelas XI SMK, calon Junior Web Developer di Kelas Industri UBIG" 
       />
-      
-      <Kartu 
-        judul="Tentang Saya" 
-        children={(
-          <p className="text-utama font-medium">
-            Saya adalah seorang siswa yang selalu penasaran pada cara kerja dunia terutama pada bidang teknologi dan sastra. Saya selalu ingin mengetahui sesuatu begitu dalam.
-          </p>
-        )} 
-      />
-      <div className="grid gap-4 md:grid-cols-2">
-        <Kartu 
-          judul="Hobi" 
-          children={(
-            <ul className="list-disc pl-5">
-              {hobies.map((hobi) => (
-                <li key={hobi.id} className="text-utama font-medium mb-1">
-                  {hobi.nama}
-                </li>
-              ))}
-            </ul>
-          )} 
-        />
-        <Kartu 
-          judul="Cita-Cita" 
-          children={(
-            <div>
-              <p className="text-utama mb-2">
-                Saya bermimpi untuk menjadi <span className="font-semibold">Full Stack Developer</span>  serta menjadi <span className="font-semibold">penulis sukses</span> yang mampu menginspirasi orang lain. Karena itu saya ingin bisa:
-              </p>
-              <ol className="list-decimal pl-5">
-                {rencana.map((plan) => (
-                  <li key={plan.id} className="text-utama font-medium">
-                    {plan.nama}
-                  </li>
-                ))}
-              </ol>
-            </div>
-          )} 
-        />
-      </div>
-      <Kartu 
-        judul="Keahlian" 
-        children={(
-          <div className="grid gap-4 md:grid-cols-3">
-            {skills.map((skill) => (
-              <SkillCard key={skill.nama} nama={skill.nama} level={skill.level} />
-            ))}
-          </div>
-        )} 
-      />
-      <Kartu
-        judul="Jadwal"
-        children={(
-          <Jadwal jadwal={jadwal} />
-        )}
-      />
+      <section>
+        <h2 className="mb-4 text-2xl font-bold text-utama">Keahlian</h2>
+        <div className="grid gap-4 md:grid-cols-3">
+          {skills.map((skill) => (
+            <SkillCard key={skill.nama} nama={skill.nama} level={skill.level} />
+          ))}
+        </div>
+      </section>
+      <section>
+        <h2 className="mb-4 text-2xl font-bold text-utama">Proyek Terbaru</h2>
+        <div className="grid gap-6 md:grid-cols-3">
+          {proyekTerbaru.map((item) => (
+            <ProyekCard key={item.slug} proyek={item} />
+          ))}
+        </div>
+        <Link href="/proyek">
+          <button className="mt-4 px-6 py-2 rounded-lg bg-utama text-white">Lihat Semua Proyek</button>
+        </Link>
+      </section>
     </main>
   )
 }
