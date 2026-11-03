@@ -34,7 +34,7 @@ export default function FilterProyek({ proyek }) {
         ))}
       </div>
       <div className="mt-6">
-        <label htmlFor="cari" className="block font-semibold">
+        <label htmlFor="cari" className="block font-semibold text-gray-700 dark:text-gray-300">
           Cari proyek
         </label>
         <input
@@ -43,7 +43,7 @@ export default function FilterProyek({ proyek }) {
           value={kata}
           onChange={(e) => setKata(e.target.value)}
           placeholder="Contoh: kalkulator"
-          className="mt-1 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 p-2 md:w-80"
+          className="mt-1 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 p-2 md:w-80 ttext-gray-700 dark:text-gray-300"
         />
       </div>
       <p className="mt-4 text-gray-700 dark:text-gray-300">
