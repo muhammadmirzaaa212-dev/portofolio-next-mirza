@@ -45,9 +45,9 @@ export default async function DetailProyek({ params }) {
         loading="eager"
         className="mt-6 h-auto w-full rounded-xl border border-gray-200 dark:border-gray-700"
       />
-      <p className="mt-6 text-lg">{item.deskripsi}</p>
+      <p className="mt-6 text-lg text-gray-600 dark:text-gray-400">{item.deskripsi}</p>
       <h2 className="mt-8 text-2xl font-bold text-utama dark:text-sky-200">Yang Saya pelajari</h2>
-      <ul className="mt-3 list-disc pl-9">
+      <ul className="mt-3 list-disc pl-9 text-gray-600 dark:text-gray-400">
         {item.fitur.map((f) => (
           <li key={f}>{f}</li>
         ))}
