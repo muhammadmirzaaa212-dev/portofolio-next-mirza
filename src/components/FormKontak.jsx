@@ -38,7 +38,7 @@ export default function FormKontak() {
   }
 
   return (
-    <form onSubmit={kirim} noValidate className="space-y-4 p-4 rounded-lg bg-card border border-border min-w-lg">
+    <form onSubmit={kirim} noValidate className="space-y-4 rounded-lg bg-card min-w-lg">
       <div>
         <label htmlFor="nama" className="block font-semibold text-muted-foreground">
           Nama Lengkap
@@ -113,7 +113,7 @@ export default function FormKontak() {
         {error.pesan && <p className="mt-1 text-sm text-aksen">{error.pesan}</p>}
       </div>
       <div>
-        <button className="px-4 py-2 rounded-lg text-white bg-aksen text-sm font-medium">Kirim Pesan</button>
+        <button className="px-4 py-2 rounded-lg text-white bg-primary text-sm font-medium">Kirim Pesan</button>
       </div>
       {berhasil && (
         <p className="rounded-lg bg-green-100 p-3 text-green-800 dark:bg-green-900 dark:text-green-100">
