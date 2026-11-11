@@ -3,8 +3,8 @@ import Link from "next/link"
 export default function NotFound() {
   return(
     <main className="flex flex-1 flex-col gap-4 items-center justify-center text-center">
-      <h1 className="text-6xl text-aksen dark:text-red-300 font-bold">404</h1>
-      <div className="space-y-2 text-utama dark:text-sky-200">
+      <h1 className="text-6xl text-aksen font-bold">404</h1>
+      <div className="space-y-2 text-primary">
         <h2 className="font-semibold text-2xl">Halaman tidak ditemukan</h2>
         <h3>Alamat yang kamu buka tidak ada atau sudah dipisahkan</h3>
       </div>

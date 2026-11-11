@@ -9,9 +9,9 @@ export default function Jadwal({jadwal}) {
             <th className="py-2 px-4 md:px-6 text-start">Kegiatan</th>
           </tr>
         </thead>
-        <tbody className="text-utama dark:text-sky-200 bg-white dark:bg-gray-800">
+        <tbody className="text-primary bg-card">
           {jadwal.map((item) => (
-            <tr key={item.id} className="border-b border-gray-200 dark:border-gray-700">
+            <tr key={item.id} className="border-b border-border">
               <td className="py-2 px-4 md:px-6 text-start">{item.hari}</td>
               <td className="py-2 px-4 md:px-6 text-start">{item.waktu}</td>
               <td className="py-2 px-4 md:px-6 text-start">{item.kegiatan}</td>

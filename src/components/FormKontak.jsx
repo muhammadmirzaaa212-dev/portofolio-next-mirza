@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const kelasInput = "mt-1 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 p-2";
+const kelasInput = "mt-1 w-full rounded-lg border border-input bg-card p-2";
 
 export default function FormKontak() {
   const [nama, setNama] = useState("");
@@ -38,9 +38,9 @@ export default function FormKontak() {
   }
 
   return (
-    <form onSubmit={kirim} noValidate className="space-y-4 p-4 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 min-w-lg">
+    <form onSubmit={kirim} noValidate className="space-y-4 p-4 rounded-lg bg-card border border-border min-w-lg">
       <div>
-        <label htmlFor="nama" className="block font-semibold text-gray-700 dark:text-gray-300">
+        <label htmlFor="nama" className="block font-semibold text-muted-foreground">
           Nama Lengkap
         </label>
         <input
@@ -50,12 +50,12 @@ export default function FormKontak() {
           placeholder="Contoh: Budi Santoso"
           onChange={(e) => setNama(e.target.value)}
           required
-          className="mt-1 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 p-2 text-gray-700 dark:text-gray-300"
+          className="mt-1 w-full rounded-lg border border-input bg-card p-2 text-muted-foreground"
         />
-        {error.nama && <p className="mt-1 text-sm text-aksen dark:text-red-300">{error.nama}</p>}
+        {error.nama && <p className="mt-1 text-sm text-aksen">{error.nama}</p>}
       </div>
       <div>
-        <label htmlFor="email" className="block font-semibold text-gray-700 dark:text-gray-300">
+        <label htmlFor="email" className="block font-semibold text-muted-foreground">
           Email
         </label>
         <input
@@ -65,12 +65,12 @@ export default function FormKontak() {
           placeholder="nama@gmail.com"
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="mt-1 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 p-2 text-gray-700 dark:text-gray-300"
+          className="mt-1 w-full rounded-lg border border-input bg-card p-2 text-muted-foreground"
         />
-        {error.email && <p className="mt-1 text-sm text-aksen dark:text-red-300">{error.email}</p>}
+        {error.email && <p className="mt-1 text-sm text-aksen">{error.email}</p>}
       </div>
       <div>
-        <label htmlFor="nomor" className="block font-semibold text-gray-700 dark:text-gray-300">
+        <label htmlFor="nomor" className="block font-semibold text-muted-foreground">
           Nomor HP
         </label>
         <input
@@ -80,16 +80,16 @@ export default function FormKontak() {
           placeholder="081234567890"
           onChange={(e) => setHp(e.target.value)}
           required
-          className="mt-1 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 p-2 text-gray-700 dark:text-gray-300"
+          className="mt-1 w-full rounded-lg border border-input bg-card p-2 text-muted-foreground"
         />
-        {error.hp && <p className="mt-1 text-sm text-aksen dark:text-red-300">{error.hp}</p>}
+        {error.hp && <p className="mt-1 text-sm text-aksen">{error.hp}</p>}
       </div>
       <div>
-        <label htmlFor="keperluan" className="block font-semibold text-gray-700 dark:text-gray-300">
+        <label htmlFor="keperluan" className="block font-semibold text-muted-foreground">
           Keperluan
         </label>
         <select 
-          className="mt-1 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 p-2 text-gray-700 dark:text-gray-300"
+          className="mt-1 w-full rounded-lg border border-input bg-card p-2 text-muted-foreground"
           onChange={(e) => setKeperluan(e.target.value)}
         >
           <option>-- Pilih keperluan --</option>
@@ -97,10 +97,10 @@ export default function FormKontak() {
           <option>Tanya Jawab</option>
           <option>Masukan dan Saran</option>
         </select>
-        {error.keperluan && <p className="mt-1 text-sm text-aksen dark:text-red-300">{error.keperluan}</p>}
+        {error.keperluan && <p className="mt-1 text-sm text-aksen">{error.keperluan}</p>}
       </div>
       <div>
-        <label htmlFor="pesan" className="block font-semibold text-gray-700 dark:text-gray-300">
+        <label htmlFor="pesan" className="block font-semibold text-muted-foreground">
           Pesan
         </label>
         <textarea
@@ -108,9 +108,9 @@ export default function FormKontak() {
           onChange={(e) => setPesan(e.target.value)}
           required
           rows={5}
-          className="mt-1 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 p-2 text-gray-700 dark:text-gray-300"
+          className="mt-1 w-full rounded-lg border border-input bg-card p-2 text-muted-foreground"
         />
-        {error.pesan && <p className="mt-1 text-sm text-aksen dark:text-red-300">{error.pesan}</p>}
+        {error.pesan && <p className="mt-1 text-sm text-aksen">{error.pesan}</p>}
       </div>
       <div>
         <button className="px-4 py-2 rounded-lg text-white bg-aksen text-sm font-medium">Kirim Pesan</button>
