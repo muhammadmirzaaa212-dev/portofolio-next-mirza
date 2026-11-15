@@ -120,6 +120,7 @@ export default function FormKontak() {
           Terima kasih, {nama}! Pesanmu sudah lolos pemeriksaan.
         </p>
       )}
+      <p className="text-sm text-muted-foreground">Form ini belum mengirim pesan. Untuk menyapa saya, tulis pesan di halaman Buku Tamu.</p>
     </form>
   )
 }
