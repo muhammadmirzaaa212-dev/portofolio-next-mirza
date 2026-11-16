@@ -6,6 +6,9 @@ import { sudahMasuk } from "@/lib/pin";
 import { supabaseAdmin } from "@/lib/supabase-admin";
 import { hapusPesan, keluarKelola, sematkanPesan } from "./actions";
 import KonfirmasiHapus from "@/components/KonfirmasiHapus";
+import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button";
+import { hapusProyek } from "./actions";
 
 export const metadata = {
   title: "Kelola Data"
@@ -31,6 +34,11 @@ export default async function Kelola() {
     .select("*")
     .order("created_at", { ascending: false })
 
+  const { data: daftarProyek } = await supabaseAdmin
+    .from("projects")
+    .select("*")
+    .order("created_at", { ascending: false });
+
   return (
     <main className="mx-auto w-full max-w-3xl px-4 py-10">
       <div className="flex items-center justify-between">
@@ -40,6 +48,35 @@ export default async function Kelola() {
             Keluar
           </Button>
         </form>
+      </div>
+      <div className="mt-8 flex items-center justify-between">
+        <h2 className="text-2xl font-bold text-primary">Proyek</h2>
+        <Link href="/kelola/proyek/baru" className={buttonVariants()}>
+          Tambah Proyek
+        </Link>
+      </div>
+      <div className="mt-4 space-y-3">
+        {daftarProyek && daftarProyek.map((item) => (
+          <Card key={item.id} size="sm">
+            <CardHeader>
+              <CardTitle>{item.judul}</CardTitle>
+              <CardDescription>
+                {item.kategori} &middot; {item.minggu}
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="flex gap-2">
+              <Link href={`/kelola/proyek/${item.id}`} className={buttonVariants({ variant: "outline", size: "sm" })}>
+                Ubah
+              </Link>
+              <KonfirmasiHapus
+                id={item.id}
+                aksi={hapusProyek}
+                judul="Hapus proyek ini?"
+                keterangan={`Proyek ${item.judul} akan hilang dari halaman Proyek dan Beranda.`}
+              />
+            </CardContent>
+          </Card>
+        ))}
       </div>
       <h2 className="mt-8 text-2xl font-bold text-primary">Pesan Buku Tamu</h2>
       <div className="mt-4 space-y-4">
