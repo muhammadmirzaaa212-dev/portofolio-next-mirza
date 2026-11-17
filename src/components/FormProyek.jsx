@@ -39,8 +39,8 @@ export default function FormProyek({ aksi, proyek, teksTombol }) {
         <Textarea id="fitur" name="fitur" defaultValue={state.proyek.fitur.join("\n")} />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="gambar-url">Gambar URL</Label>
-        <Input id="gambar-url" name="gambar-url" defaultValue={state.proyek.gambar_url} />
+        <Label htmlFor="gambar_url">Gambar URL</Label>
+        <Input id="gambar_url" name="gambar_url" defaultValue={state.proyek.gambar_url} />
       </div>
       <TombolKirim teks={teksTombol} />
     </form>
